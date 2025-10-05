@@ -8,33 +8,45 @@
 </head>
 <body>
 
-    <div id="envelope">
-        <div class="envelope-content">
-            <div class="heart">❤</div>
-            <p>You've got a message!</p>
-            <button id="open-btn">Click to Open</button>
+    <div id="loading-screen" class="screen">
+        <div class="content">
+            <img src="https://i.pinimg.com/originals/2c/6a/2d/2c6a2de62a3156f6c2f7412759d333f2.gif" alt="loading..." class="loading-gif">
+            <h2>Something Special is Coming...</h2>
         </div>
     </div>
 
-    <div id="letter" class="hidden">
-        <div class="letter-content">
-            <h1>Dear [Your Crush's Pet Name],</h1>
-            
-            <p>I wanted to write you this little note because I've been thinking about you. [Write your personal message here. Maybe an apology, a sweet memory, or an inside joke].</p>
-            
-            <p>I'm truly sorry and I promise to do better. Please forgive me.</p>
-            
-            <p>With all my love,<br>
-            [Your Name]</p>
+    <div id="envelope-screen" class="screen hidden">
+        <div class="content envelope-container">
+            <div id="envelope" class="envelope-closed">
+                <div class="front"></div>
+                <div class="back"></div>
+                <div class="heart-seal">❤</div>
+            </div>
+            <p class="instruction-text">Tap the envelope to open</p>
+        </div>
+    </div>
 
-            <hr>
+    <div id="letter-content" class="screen hidden">
+        <h1>Dear Kuchupuchu,</h1>
+        
+        <p>I wanted to write this because I've been a bit distant, and I'm truly sorry for the ways I have let you down. Please forgive me.</p>
+        
+        <p>You mean the world to me, and I promise to be better.</p>
+        
+        <p>With all my love,<br>
+        Priyansh</p>
 
+        <hr>
+
+        <div class="section">
             <h2>Songs Dedicated To You 🎶</h2>
-            <p>A few songs that make me think of you:</p>
             <iframe style="border-radius:12px" src="https://open.spotify.com/embed/playlist/37i9dQZF1DXcBWIGoYBM5M?utm_source=generator" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+        </div>
 
-            <h2>This is us btw...</h2>
-            <img src="https://media1.tenor.com/m/E22MLi5P58AAAAAC/couple-cute.gif" alt="cute couple gif">
+        <div class="section">
+            <h2>This is us btw... ❤️</h2>
+            <img src="https://i.pinimg.com/originals/a9/e2/4a/a9e24a3552b71be5332f915233e6807a.gif" alt="cute couple gif" class="final-image">
+            <p>Don't be angyyyyyyy.</p>
         </div>
     </div>
 
