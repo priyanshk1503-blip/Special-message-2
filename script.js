@@ -3,7 +3,8 @@ document.addEventListener('DOMContentLoaded', function() {
     const loadingScreen = document.getElementById('loading-screen');
     const envelopeScreen = document.getElementById('envelope-screen');
     const letterContent = document.getElementById('letter-content');
-    const envelope = document.getElementById('envelope');
+    const envelopeScreen = document.getElementById('envelope-screen');
+
 
     // --- SEQUENCE START ---
 
