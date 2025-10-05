@@ -2,57 +2,116 @@
 
 body {
     font-family: 'Playpen Sans', cursive;
-    background: #fde2e4; /* A soft pink background */
+    background: #1a1a2e; /* Dark blue background */
+    color: #e0e0e0;
     margin: 0;
     padding: 20px;
+    text-align: center;
+    overflow: hidden; /* Hide scrollbars initially */
+}
+
+/* Screen container styles */
+.screen {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
-    min-height: 100vh;
+    flex-direction: column;
+    transition: opacity 1s ease-in-out, transform 1s ease-in-out;
 }
 
+.content {
+    padding: 20px;
+}
+
+.hidden {
+    opacity: 0;
+    pointer-events: none; /* Can't click on hidden things */
+    transform: scale(0.9);
+}
+
+/* Loading Screen Styles */
+#loading-screen h2 {
+    color: #f7a8b8;
+}
+.loading-gif {
+    width: 150px;
+}
+
+/* Envelope Styles */
+.envelope-container {
+    perspective: 1000px;
+}
 #envelope {
-    text-align: center;
+    position: relative;
+    width: 280px;
+    height: 180px;
     cursor: pointer;
+    transform-style: preserve-3d;
+    transition: transform 1s;
 }
-
-.envelope-content .heart {
-    font-size: 80px;
-    color: #ff5c8a;
-    animation: pulse 1.5s infinite;
+#envelope.envelope-open {
+    transform: rotateY(180deg);
 }
-
-#open-btn {
-    font-family: 'Playpen Sans', cursive;
-    background-color: #ff5c8a;
-    color: white;
-    border: none;
-    padding: 15px 30px;
-    border-radius: 50px;
-    font-size: 18px;
-    cursor: pointer;
+.front, .back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    background-color: #ff8fab;
+    border-radius: 10px;
+}
+.back {
+    transform: rotateY(180deg);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 50px;
+}
+.heart-seal {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 40px;
+    color: #c94b4b;
+}
+.instruction-text {
     margin-top: 20px;
-    transition: background-color 0.3s;
+    color: #f7a8b8;
+    animation: pulse 2s infinite;
 }
 
-#open-btn:hover {
-    background-color: #e04a75;
-}
-
-#letter {
-    background: #fff;
+/* Letter Content Styles */
+#letter-content {
+    background: #162447;
     max-width: 600px;
-    padding: 30px;
+    height: 80vh;
     border-radius: 15px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-    animation: fadeIn 1s ease-in-out;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    padding: 30px;
+    overflow-y: auto; /* Make the letter scrollable */
+    transform: translateY(100vh); /* Start off-screen */
 }
 
-.letter-content h1, .letter-content h2 {
-    color: #d6336c;
+#letter-content.visible {
+    opacity: 1;
+    transform: translateY(0);
 }
 
-.letter-content img {
+#letter-content h1, #letter-content h2 {
+    color: #f7a8b8;
+}
+
+.section {
+    margin-top: 30px;
+}
+
+.final-image {
     max-width: 100%;
     border-radius: 10px;
     margin-top: 20px;
@@ -61,21 +120,143 @@ body {
 hr {
     border: 0;
     height: 1px;
-    background-image: linear-gradient(to right, rgba(0, 0, 0, 0), #d6336c, rgba(0, 0, 0, 0));
+    background-image: linear-gradient(to right, rgba(0, 0, 0, 0), #f7a8b8, rgba(0, 0, 0, 0));
     margin: 30px 0;
 }
 
-.hidden {
-    display: none;
+@keyframes pulse {
+    0% { opacity: 1; }
+    50% { opacity: 0.5; }
+    100% { opacity: 1; }
+}
+@import url('https://fonts.googleapis.com/css2?family=Playpen+Sans:wght@300;400;600&display=swap');
+
+body {
+    font-family: 'Playpen Sans', cursive;
+    background: #1a1a2e; /* Dark blue background */
+    color: #e0e0e0;
+    margin: 0;
+    padding: 20px;
+    text-align: center;
+    overflow: hidden; /* Hide scrollbars initially */
 }
 
-@keyframes fadeIn {
-    from { opacity: 0; transform: translateY(20px); }
-    to { opacity: 1; transform: translateY(0); }
+/* Screen container styles */
+.screen {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    transition: opacity 1s ease-in-out, transform 1s ease-in-out;
+}
+
+.content {
+    padding: 20px;
+}
+
+.hidden {
+    opacity: 0;
+    pointer-events: none; /* Can't click on hidden things */
+    transform: scale(0.9);
+}
+
+/* Loading Screen Styles */
+#loading-screen h2 {
+    color: #f7a8b8;
+}
+.loading-gif {
+    width: 150px;
+}
+
+/* Envelope Styles */
+.envelope-container {
+    perspective: 1000px;
+}
+#envelope {
+    position: relative;
+    width: 280px;
+    height: 180px;
+    cursor: pointer;
+    transform-style: preserve-3d;
+    transition: transform 1s;
+}
+#envelope.envelope-open {
+    transform: rotateY(180deg);
+}
+.front, .back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    background-color: #ff8fab;
+    border-radius: 10px;
+}
+.back {
+    transform: rotateY(180deg);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 50px;
+}
+.heart-seal {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 40px;
+    color: #c94b4b;
+}
+.instruction-text {
+    margin-top: 20px;
+    color: #f7a8b8;
+    animation: pulse 2s infinite;
+}
+
+/* Letter Content Styles */
+#letter-content {
+    background: #162447;
+    max-width: 600px;
+    height: 80vh;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    padding: 30px;
+    overflow-y: auto; /* Make the letter scrollable */
+    transform: translateY(100vh); /* Start off-screen */
+}
+
+#letter-content.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+#letter-content h1, #letter-content h2 {
+    color: #f7a8b8;
+}
+
+.section {
+    margin-top: 30px;
+}
+
+.final-image {
+    max-width: 100%;
+    border-radius: 10px;
+    margin-top: 20px;
+}
+
+hr {
+    border: 0;
+    height: 1px;
+    background-image: linear-gradient(to right, rgba(0, 0, 0, 0), #f7a8b8, rgba(0, 0, 0, 0));
+    margin: 30px 0;
 }
 
 @keyframes pulse {
-    0% { transform: scale(1); }
-    50% { transform: scale(1.1); }
-    100% { transform: scale(1); }
+    0% { opacity: 1; }
+    50% { opacity: 0.5; }
+    100% { opacity: 1; }
 }
